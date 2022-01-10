@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LocalStorage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    
+</head>
+
+<body>
+    <!--
+      Fish SVG Cred:
+      https://thenounproject.com/search/?q=fish&i=589236
+   -->
+
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g><path d="M495.9,425.3H16.1c-5.2,0-10.1,2.9-12.5,7.6c-2.4,4.7-2.1,10.3,0.9,14.6l39,56.4c2.6,3.8,7,6.1,11.6,6.1h401.7   c4.6,0,9-2.3,11.6-6.1l39-56.4c3-4.3,3.3-9.9,0.9-14.6C506,428.2,501.1,425.3,495.9,425.3z M449.4,481.8H62.6L43,453.6H469   L449.4,481.8z"/><path d="M158.3,122c7.8,0,14.1-6.3,14.1-14.1V43.4c0-7.8-6.3-14.1-14.1-14.1c-7.8,0-14.1,6.3-14.1,14.1v64.5   C144.2,115.7,150.5,122,158.3,122z"/><path d="M245.1,94.7c7.8,0,14.1-6.3,14.1-14.1V16.1c0-7.8-6.3-14.1-14.1-14.1C237.3,2,231,8.3,231,16.1v64.5   C231,88.4,237.3,94.7,245.1,94.7z"/><path d="M331.9,122c7.8,0,14.1-6.3,14.1-14.1V43.4c0-7.8-6.3-14.1-14.1-14.1s-14.1,6.3-14.1,14.1v64.5   C317.8,115.7,324.1,122,331.9,122z"/><path d="M9.6,385.2c5.3,2.8,11.8,1.9,16.2-2.2l50.6-47.7c56.7,46.5,126.6,71.9,198.3,71.9c0,0,0,0,0,0   c87.5,0,169.7-36.6,231.4-103.2c5-5.4,5-13.8,0-19.2c-61.8-66.5-144-103.2-231.4-103.2c-72,0-142.2,25.6-199,72.5l-50-47.1   c-4.4-4.1-10.9-5-16.2-2.2c-5.3,2.8-8.3,8.7-7.4,14.6l11.6,75L2.2,370.6C1.3,376.5,4.2,382.4,9.6,385.2z M380.9,230.8   c34.9,14.3,67.2,35.7,95.3,63.6c-10.1,10-20.8,19.2-31.9,27.5c-22.4-3.3-29.6-8.8-30.7-9.7c-4-5.7-11.8-7.7-18.1-4.4   c-6.9,3.6-9.5,12.2-5.9,19.1c1.9,3.5,7.3,10.3,22.4,16c-10.1,5.7-20.5,10.7-31.1,15.1C352.4,320.2,352.4,268.6,380.9,230.8z    M36.3,255.6l29.4,27.7c5.3,5,13.6,5.1,19.1,0.3c53.2-47.6,120.7-73.7,190-73.7c26.9,0,53.2,3.9,78.5,11.3   c-29.3,44.6-29.3,102,0,146.6c-25.3,7.4-51.6,11.3-78.5,11.3c-69,0-136.3-26-189.4-73.2c-2.7-2.4-13.4-6.3-19.1,0.3l-30.1,28.3   l5.7-40C42.2,293,36.3,255.6,36.3,255.6z"/><circle cx="398.8" cy="273.8" r="14.1"/></g></svg> -->
+   <!--top black bar-->
+   
+    <div class="jumbotron bg-info  text-center" style="margin-bottom:0">
+        <h1 style="color:rgb(255, 255, 255);">Redant's 3C Pre-order Platform</h1>
+        <p style="color:rgb(255, 255, 255);">厲害的酷東西這邊最多</p> 
+    </div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">3c預購系統</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsiblenavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsiblenavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">產品介紹</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">門市資訊</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">聯絡我們</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top:30px" >
+        <div class="row" >
+          <div class="col-sm-4">
+            <div class="container">
+                
+                <div class="card">
+                  <div class="card-header">目前等待號碼</div>
+                  <div class="card-body">
+                    <ul class="plates">
+                        <li>目前無人排隊...</li>
+                    </ul>
+                  </div> 
+                  <!-- <div class="card-footer">底部</div> -->
+                </div>
+            </div>
+
+            <hr class="d-sm-none">
+          </div>
+
+        <div class="jumbotron ">
+          <div class="col-sm-8"> 
+            <h2><span class="badge badge-info">NEW</span>  iPhone20 預購系統</h2>
+            <p></p>
+            <!-- <img src="images/iphone20.jpg" class="rounded" alt="Cinque Terre" width="304" height="236">  -->
+            <div class="row">
+                <div class="col" ><img src="images/iphone20.jpg" class="rounded" alt="Cinque Terre" width="304" height="236"> </div>
+                <div class="col" >
+                    <p></p> 
+                    <h4>《2023年最牛B手機》</h4><p></p> 
+                    <h6> - 麻將五筒造型鏡頭</h6><p></p> 
+                    <h6> - 鼠王芭比新色</h6><p></p> 
+                    <h6> - 瞳孔解鎖</h6><p></p> 
+                    <h5>  NT$ ?????</h5>
+                </div>
+            </div>
+        </div>
+
+
+            <p></p>
+            <div><span class="badge badge-pill badge-info">Go!</span><h3>開始預購!</h3></div>
+            <p></p><p></p>
+            <form class="add-items">
+                <p></p>
+                <p>
+                    目前編號: <input type="text"  name=""  class="J_input" size="3" style="font-size:20px" placeholder="0" required> 號  
+                    <input type="submit"  class="J_add"  href="javascript:;" value="點擊抽號碼牌">
+                </p>
+                
+                <p id="p1" class="btn btn-outline-info">點擊本文字查看您的預購編號</p>
+            </form>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <!-- 三張圖片 -->
+        <div class="container-fluid text-center bg-grey" >
+            <h2>~熱賣商品~</h2>
+            <h4>best-seller</h4>
+            <div class="row text-center">
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                <img src="images/iphone13.jpg" width="250" height="300">
+                <p><strong>iphone13</strong></p>
+                <p>NT$ 40666</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                <img src="images/iphoneXS.jpg" alt="New York" width="250" height="300">
+                <p><strong>iphoneXS</strong></p>
+                <p>NT$ 20200</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                <img src="images/iphone7.jpg" alt="San Francisco" width="250" height="300">
+                <p><strong>iphone7</strong></p>
+                <p>NT$ 17988</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+
+        // +1運算
+        $(document).ready(function () {
+            $('.add-items').each(function () {
+                var _this = $(this);
+                var add = $(_this).find(".J_add");//添加数量  
+                var num = 0;//数量初始值  
+                var num_txt = $(_this).find(".J_input");//接受数量的文本框 
+                $(add).click(function () {
+                    num = $(num_txt).val();
+                    num++;
+                    num_txt.val(num);
+                    //ajax代碼可以放這裡 
+                });
+                $("#p1").mousedown(function () {
+                    alert("您的號碼是 "+num +"\n(提醒您記得截圖保障自身權益)");
+                    
+                });
+            })
+        });
+
+        const addItems = document.querySelector('.add-items');
+        const itemsList = document.querySelector('.plates');
+        const submitBtn = document.querySelector('input[type="submit"]');
+        const inputArea = document.querySelector('input[type="text"]');
+
+        //當localStorage沒有資料陣列，指定一個空陣列放入資料庫
+        if (localStorage.getItem('item') === null) {
+            var storageArray = [];
+            localStorage.setItem('item', JSON.stringify(storageArray));
+            //當localStorage已存在資料陣列，指定一個內容與陣列資料庫相同的陣列
+        } else {
+            var storageArray = JSON.parse(localStorage.getItem('item'));
+        };
+
+        addItems.addEventListener('submit', addItem);
+
+        function addItem(event) {
+            event.preventDefault();
+
+            inputValue = inputArea.value; //取得輸入欄位的資料           
+            inputObject = { value: inputValue, done: false }; //建立一個符合我們需求的物件資料           
+            storageArray.push(inputObject); //將新物件加入我們的陣列            
+            stringJson = JSON.stringify(storageArray) //將陣列修改成JSON字串            
+            localStorage.setItem(`item`, stringJson); //將處理後的JSON字串更新到資料庫中            
+            //inputArea.value = ''; //將輸入欄位清空           
+            createlist() //將資料呈現在頁面上
+        };
+
+        function createlist() {
+            
+            let arrayJason = JSON.parse(localStorage.getItem('item')); //將資料庫的陣列取出
+            //假如資料庫內的陣列有內容存在，執行以下的程式碼
+            if (arrayJason.length !== 0) {         
+                itemsList.innerHTML = ''; //先清空ul容器內的元素
+                //對陣列裡的每個元素執行函式
+                arrayJason.forEach(function (item) {                   
+                    let createLi = document.createElement('li'); //在DOM上創造一個<li>元素                 
+                    let createInput = document.createElement('input'); //在DOM上創造一個<input>元素                   
+                    createInput.setAttribute('type', 'checkbox'); //將<input>元素加上 type="checkbox"這個屬性                   
+                    let createLabel = document.createElement('label'); //在DOM上創造一個<label>元素                  
+                    createInput.checked = item['done']; //將物件中的 done 值指定給 <label> 元素的 checked 屬性           
+                    createLabel.addEventListener('click', checkStatus); //將<input>元素加上監聽事件與觸發函式            
+                    createLabel.textContent = item['value']; //將物件中的 value 值指定給 <input> 元素的文字內容              
+                    createLi.appendChild(createInput); //將 <input> 元素加到 <li> 容器元素底下              
+                    createLi.appendChild(createLabel); //將 <label> 元素加到 <li> 容器元素底下              
+                    itemsList.appendChild(createLi);//將 <li> 元素加到 <ul> 容器元素底下
+                });
+                
+            } else {  //假如資料庫內的陣列有內容存在，執行以下的程式碼
+                itemsList.innerHTML = '<li>Loading Tapas...</li>';
+            }
+        };
+
+        function checkStatus(event) {
+            
+            let allLable = document.querySelectorAll('label'); //將目前頁面中的所有 <label> 元素選出來         
+            labelArray = Array.from(allLable); //將前一步中的 Nodelist 轉為陣列          
+            let getIndex = labelArray.indexOf(event.target);//取得觸發事件元素的 index          
+            let arrayJason = JSON.parse(localStorage.getItem('item')); //將資料庫中的陣列資料叫出來          
+            arrayJason[getIndex]['done'] = !arrayJason[getIndex]['done']; //當 click 事件觸發時，將 done 的屬性布林值改為相反          
+            stringJson = JSON.stringify(arrayJason); //將新的資料陣列轉成 JSON string 結構          
+            localStorage.setItem(`item`, stringJson);  //將新的 JSON string 丟到資料庫中           
+            createlist(); //重新將資料呈現在頁面上
+        };
+
+        // if(checkStatus(event)&&addItem(event)){
+        // }
+
+    </script>
+    
+    <p></p>
+
+    <div class="jumbotron text-center" style="margin-bottom:0" >
+        
+            <p>No. 1727, Section 4, Taiwan Avenue, Xitun District, Taichung City/</p>
+            <h4>Redant's 3C Pre-order Platform</h4>
+        
+    </div>
+    
+</body>
+
+</html>
